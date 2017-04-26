@@ -136,10 +136,10 @@
   height: 35px;
   margin-left: 120px;
   margin-top: 50px;
-  width: 70px;
+  width: 72px;
 }
 
-.switch {
+.switch-on {
   background-color: #3193de;
   border-color: #343132;
   border-radius: 5px;
@@ -147,6 +147,18 @@
   border-width: 2px;
   height:30px;
   width: 35px;
+  display: block;
+}
+.switch-off {
+  background-color: #3193de;
+  border-color: #343132;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  height:30px;
+  width: 35px;
+  margin-left: 33px;
+  display: none;
 }
 
 .off {
