@@ -6,6 +6,7 @@ var off
 document.addEventListener('DOMContentLoaded',function(event) {
   on = document.getElementsByClassName('switch-on')[0];
   off = document.getElementsByClassName('switch-off')[0];
+  score = document.getElementsByClassName('score-text')[0];
 
 //add event listeners for functions that will turn things on and off
   on.addEventListener('click', toggleOn);
@@ -17,6 +18,7 @@ var toggleOn = function(event) {
   if(on.style.display !== 'none') {
     event.target.style.display = 'none';
     off.style.display = 'block';
+    score.style.color = '#dc0d29'
   }
 }
 
@@ -25,5 +27,6 @@ var toggleOff = function(event) {
   if(off.style.display == 'block') {
     off.style.display = 'none';
     on.style.display = 'block'
+    score.style.color = '#32050c'
   }
 }
