@@ -5,6 +5,7 @@ var audio
 var yellowButton
 var greenButton
 var redButton
+var blueButton
 //onload
 document.addEventListener('DOMContentLoaded',function(event) {
   on = document.getElementsByClassName('switch-on')[0];
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded',function(event) {
   yellowButton = document.getElementsByClassName('yellow')[0];
   greenButton = document.getElementsByClassName('green')[0];
   redButton = document.getElementsByClassName('red')[0];
+  blueButton = document.getElementsByClassName('blue')[0];
 
 //add event listeners for functions that will turn things on and off
   on.addEventListener('click', toggleOn);
@@ -70,5 +72,16 @@ function playRedSound() {
       redButton.style.backgroundColor = "#9c121c"
     })
     redButton.style.backgroundColor = "#DB1A27"
+  }
+}
+
+function playBlueSound(){
+  if(off.style.display == 'block') {
+    var audio = new Audio('../sounds/simonSound4.mp3');
+    audio.play();
+    audio.addEventListener('ended', () => {
+      blueButton.style.backgroundColor = "#1d8cff"
+    })
+    blueButton.style.backgroundColor = "#449EFF"
   }
 }
