@@ -12,8 +12,8 @@
   <body>
     <div class="console">
       <div class="flex-container">
-        <div class="flex-button green"></div>
-        <div class="flex-button red"></div>
+        <div class="flex-button green" onclick="playGreenSound()"></div>
+        <div class="flex-button red" onclick="playRedSound()"></div>
       </div>
 
       <div class="flex-container">
@@ -49,6 +49,10 @@
     </div>
 
     <audio class="yellowSound" src="/sounds/simonSoundYellow.mp3" autostart="false" type="audio/mpeg"></audio>
+
+    <audio class="greenSound" src="/sounds/simonSound2.mp3" autostart="false" type="audio/mpeg"></audio>
+
+    <audio class="redSound" src="/sounds/simonSound3.mp3" autostart="false" type="audio/mpeg"></audio>
 
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"

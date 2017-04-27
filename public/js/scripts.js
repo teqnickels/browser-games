@@ -3,13 +3,16 @@ var on
 var off
 var audio
 var yellowButton
-var 
+var greenButton
+var redButton
 //onload
 document.addEventListener('DOMContentLoaded',function(event) {
   on = document.getElementsByClassName('switch-on')[0];
   off = document.getElementsByClassName('switch-off')[0];
   score = document.getElementsByClassName('score-text')[0];
   yellowButton = document.getElementsByClassName('yellow')[0];
+  greenButton = document.getElementsByClassName('green')[0];
+  redButton = document.getElementsByClassName('red')[0];
 
 //add event listeners for functions that will turn things on and off
   on.addEventListener('click', toggleOn);
@@ -41,12 +44,31 @@ function playYellowSound() {
   if(off.style.display == 'block'){
     var audio = new Audio('../sounds/simonSoundYellow.mp3');
     audio.play();
-    audio.addEventListener('ended',() =>{
+    audio.addEventListener('ended',() => {
       yellowButton.style.backgroundColor = "#cba60c"
-      console.log('===================',yellowButton.style.color);
     })
     yellowButton.style.backgroundColor = "#E0B60D"
-    console.log('===================',yellowButton.style.color);
+  }
+}
 
+function playGreenSound() {
+  if(off.style.display == 'block') {
+    var audio = new Audio('../sounds/simonSound2.mp3');
+    audio.play();
+    audio.addEventListener('ended', () => {
+      greenButton.style.backgroundColor = "#03a64b"
+    })
+    greenButton.style.backgroundColor = "#03C65B"
+  }
+}
+
+function playRedSound() {
+  if(off.style.display == 'block') {
+    var audio = new Audio('../sounds/simonSound3.mp3');
+    audio.play();
+    audio.addEventListener('ended', () => {
+      redButton.style.backgroundColor = "#9c121c"
+    })
+    redButton.style.backgroundColor = "#DB1A27"
   }
 }
