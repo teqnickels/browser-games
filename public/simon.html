@@ -8,6 +8,7 @@
 
     <title> Simon </title>
   </head>
+
   <body>
     <div class="console">
       <div class="flex-container">
@@ -16,7 +17,7 @@
       </div>
 
       <div class="flex-container">
-        <div class="flex-button yellow"></div>
+        <div class="flex-button yellow" onclick="playYellowSound()"></div>
         <div class="flex-button blue"></div>
       </div>
 
@@ -43,10 +44,11 @@
           <div class="off-on">
             <div class="switch-on"></div>
             <div class="switch-off"></div>
-
           </div>
         </div>
     </div>
+
+    <audio class="yellowSound" src="/sounds/simonSoundYellow.mp3" autostart="false" type="audio/mpeg"></audio>
 
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
