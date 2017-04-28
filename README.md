@@ -25,7 +25,16 @@ Then open `http://localhost:4321/` in your browser of choice and play away!
 
 
 - [x] Artifact produced is a fork of the browser-games repo.
-- [ ] For both of the games Tic-Tac-Toe and Simon, there exists:
+For Simon, there exists:
+  - [x] A playable, complete version of the game at public/GAME_NAME.html (e.g. public/ticTacToe.html)
+  - [x] A link to the game page from public/index.html
+  - [x] Variables, functions, files, etc. have appropriate and meaningful names.
+  - [x] HTML, CSS, and JS files are well formatted with proper spacing and indentation.
+  - [x] All major features are added via pull requests with a clear description and concise commit messages.
+  - [x] Every pull request has been reviewed by at least one other person.
+- [x] The artifact produced is properly licensed, preferably with the MIT license.
+
+For Tic-Tac-Toe there exists:
   - [ ] A playable, complete version of the game at public/GAME_NAME.html (e.g. public/ticTacToe.html)
   - [x] A link to the game page from public/index.html
   - [ ] Variables, functions, files, etc. have appropriate and meaningful names.
