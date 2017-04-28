@@ -29,7 +29,6 @@ start = document.getElementsByClassName('start-button')[0];
 document.addEventListener('DOMContentLoaded',function(event) {
   event.preventDefault()
 
-  //================================ Turn the game on/off ==========================
   on.addEventListener('click', toggleOn);
   off.addEventListener('click', toggleOff);
 })
@@ -196,14 +195,3 @@ var processPlayersTurn = function() {
     }, 1000 )
   }
 }
-
-//================================= Did the Player Win or Lose ===============================
-
-//when strict is clicked
-  // ++ to a variable that tracks no match when players turn and games turn don't match.
-  //if no match is greater than 0
-  //if they don't match flash !! in the score 3 times
-  //then flash - - 3 times
-  //reset score variable to 0
-  //dump game's play arr
-  //execute games turn with one randomized function from sounds
