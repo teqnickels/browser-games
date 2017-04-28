@@ -1,0 +1,14 @@
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 100px;
+}
+
+.flex-item {
+    width: 200px;
+    height: 100px;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+}
