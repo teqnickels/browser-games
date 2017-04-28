@@ -86,19 +86,6 @@
   margin-top: -45px;
   width: 30px;
 }
-/*
-.strict-button {
-  width: 30px;
-  height: 30px;
-  background-color: #ffff00;
-  margin-left: 20px;
-  border-radius: 50%;
-  border-style: solid;
-  border-color: #343132;
-  border-width: 5px;
-  box-shadow: 3px 3px 5px #888888;
-  margin-top: -45px;
-}*/
 
 .count {
   font-family: 'VT323', monospace;
@@ -119,17 +106,6 @@
   font-size: 18pt;
   margin-top: 55px;
 }
-
-/*.strict-on {
-  background-color: #32050c;
-  border-color: #343132;
-  border-radius: 50%;
-  border-style: solid;;
-  border-width: 2px;
-  height: 15px;
-  margin-top: -60px;
-  width: 15px;
-}*/
 
 .off-on {
   background-color: #211F1F;
