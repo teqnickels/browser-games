@@ -5,10 +5,23 @@
     height: 100px;
 }
 
-.flex-item {
-    width: 200px;
-    height: 100px;
-    border-color: grey;
-    border-style: solid;
-    border-width: 1px;
+.box {
+  width: 200px;
+  height: 100px;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  font-family: 'VT323', monospace;
+  font-size: 70pt;
+}
+
+.turn-announcer {
+  width: 300px;
+  height: 100px;
+  /*border-style: solid;*/
+  /*border-color: red;*/
+  /*border-width: 1px;*/
+  padding: 30px;
+  font-size: 40pt;
+  font-family: 'VT323', monospace;
 }
