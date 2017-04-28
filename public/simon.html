@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+
 
     <title> Simon </title>
   </head>
@@ -12,13 +14,13 @@
   <body>
     <div class="console">
       <div class="flex-container">
-        <div class="flex-button green" onclick="playGreenSound()"></div>
-        <div class="flex-button red" onclick="playRedSound()"></div>
+        <div class="flex-button green" onclick="sounds.green(true)"></div>
+        <div class="flex-button red" onclick="sounds.red(true)"></div>
       </div>
 
       <div class="flex-container">
-        <div class="flex-button yellow" onclick="playYellowSound()"></div>
-        <div class="flex-button blue" onclick="playBlueSound()"></div>
+        <div class="flex-button yellow" onclick="sounds.yellow(true)"></div>
+        <div class="flex-button blue" onclick="sounds.blue(true)"></div>
       </div>
 
       <div class="controls">
@@ -30,7 +32,7 @@
             <p class="count"> COUNT </p>
             <p class="off"> OFF </p>
           </div>
-          <div class="start-button">
+          <div class="start-button" onclick="gamesTurn()">
             <p class="start"> START </p>
           </div>
           <div class="strict-button">
