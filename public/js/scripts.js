@@ -52,9 +52,10 @@ var toggleOff = function(event) {
     // *** pop off anything in the gamesPattern Array ***
   }
 }
-//===================== Store Patterns ==============================
+//===================== Store Patterns & Score ==============================
 var playersPattern = [];
 var gamesPattern = [];
+var playersScore = 0
 //====================== Game Buttons ===============================
 sounds = {
   yellow : function(player) {
@@ -141,6 +142,7 @@ var gamesTurn = function() {
   if(off.style.display == 'block') {
     computerPicksColor()
     for(let i = 0; i < gamesPattern.length; i++) {
+      // document.getElementsByClassName("score-text")[0].innerHTML = "- -"
       let colors = gamesPattern[i]
       let soundFunction = functionLookUp[colors]
       setTimeout( soundFunction.bind(null, gamesPattern), i*500 );
@@ -172,14 +174,22 @@ var computerPicksColor = function() {
 var processPlayersTurn = function() {
   for(let i=0; i < playersPattern.length; i++) {
     if(playersPattern[i] !== gamesPattern[i]) {
+      document.getElementsByClassName("score-text")[0].innerHTML = " ! ! "
       gamesPattern = []
       playersPattern = []
+      playersScore = 0
+      document.getElementsByClassName("score-text")[0].innerHTML = "- -"
+      setTimeout( function() {
+        alert("╭∩╮(-_-)╭∩╮ Simon Says You Suck.... Click start button to play a new game")
+      }, 1000 )
+
       return false
     }
   }
 
-
   if(playersPattern.length >= gamesPattern.length) {
+    playersScore++
+    document.getElementsByClassName("score-text")[0].innerHTML = playersScore
     setTimeout( function() {
       playersPattern = []
       gamesTurn()
@@ -187,27 +197,7 @@ var processPlayersTurn = function() {
   }
 }
 
-// var compareIndexPatterns = function() {
-//   if(playersPattern.length > 0) {
-//     for( let i = 0; i < gamesPattern.length; i++ ) {
-//       if( gamesPattern[i] !== playersPattern[i] ) {
-//         return false
-//       }
-//     }
-//     return true
-//   }
-// }
-//
-// var compareLength = function() {
-//   if( playersPattern.length > 0 ) {
-//     for( let i = 0; i < gamesPattern.length; i++ ) {
-//       if(compareIndexPatterns() && playersPattern.length == gamesPattern.length) {
-//         gamesTurn()
-//       }
-//     }
-//   }
-// }
-
+//================================= Did the Player Win or Lose ===============================
 
 //when strict is clicked
   // ++ to a variable that tracks no match when players turn and games turn don't match.
