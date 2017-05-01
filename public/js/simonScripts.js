@@ -7,7 +7,6 @@
 // 6a if it is match repeat step 2
 // 6b if it doesnt match show the message 'you lost'
 //================================================================================
-
 // ================================= declare global vars =========================
 var on
 var off
