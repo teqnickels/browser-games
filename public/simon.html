@@ -13,33 +13,58 @@
 
   <body>
     <div class="console">
-      <div class="flex-container">
+      <div class="flex-container-console">
         <div class="flex-button green"></div>
         <div class="flex-button red"></div>
       </div>
 
-      <div class="flex-container">
+      <div class="flex-container-console">
         <div class="flex-button yellow"></div>
         <div class="flex-button blue"></div>
       </div>
 
       <div class="controls">
-        <p class="title"> Simon </p>
+        <div class="flex-container-controls">
+        <div class="flex-item"><h1 class="title">SIMON</h1></div>
+      </div>
+      <div class="flex-container-controls">
+        <div class="score-keeper-screen"></div>
+        <div class="start-button"></div>
+      </div>
+      <div class="flex-container-controls">
+        <div class="count">COUNT</div>
+        <div class="start-label">START</div>
+      </div>
 
-        <div class="flex-container">
-          <div class="score-keeper">
-            <p class="score-text"> 0000</p>
-            <p class="count"> COUNT </p>
-            <p class="off"> OFF </p>
-          </div>
-          <div class="start-button">
-            <p class="start"> START </p>
-            <p class="on"> ON </p>
-          </div>
-          <div class="strict-button">
-          </div>
-          <div class="strict-on"></div>
+      <div class="flex-container-controls">
+        <div class="off-label">OFF</div>
+        <div class="off-on-button"></div>
+        <div class="on-label">ON</div>
+      </div>
+
+
+
+
+<!--
+        <div class="row">
+          <div class="title"><h1>SIMON</h1></div>
         </div>
+        <div class="row">
+          <div class="score-keeper-screen"> </div>
+          <div class="start-button"></div>
+        </div>
+
+        <div class="row">
+          <div class="count-label"> COUNT</div>
+          <div class="start-label"> START</div>
+        </div>
+
+        <div class="row">
+          <div class="off-label">OFF</div>
+          <div class="off-and-on-button"></div>
+          <div class="on-label">ON</div>
+        </div>
+      </div>
 
         <div class="flex-container">
           <div class="off-on">
@@ -47,7 +72,9 @@
             <div class="switch-off"></div>
           </div>
         </div>
-    </div>
+      </div> -->
+
+
 
     <audio class="yellowSound" src="/sounds/simonSoundYellow.mp3" autostart="false" type="audio/mpeg"></audio>
 
