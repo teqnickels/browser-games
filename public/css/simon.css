@@ -1,0 +1,157 @@
+.blue {
+  background-color: #1d8cff;
+  border-bottom-right-radius:98%;
+}
+
+
+.controls {
+  background-color: #edeaed;
+  border-color: #343132;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 15px;
+  height: 300px;
+  margin-left: 175px;
+  margin-top: -510px;
+  position: relative;
+  width: 300px;
+  z-index: 100;
+}
+
+.console {
+  margin: auto;
+  height: 680px;
+  width: 680px;
+  margin-top: 20px;
+}
+
+.count {
+  font-family: 'VT323', monospace;
+  font-size: 18pt;
+  margin-left: 80px;
+}
+
+.green  {
+  background-color: #03a64b;
+  border-top-left-radius:98%;
+}
+
+.flex-button {
+  border-color: #343132;
+  border-style: solid;
+  border-width: 20px;
+  height: 300px;
+  width: 300px;
+  z-index: 100;
+}
+
+
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  z-index: 2000;
+}
+
+.flex-container-console{
+  display: -webkit-flex;
+  display: flex;
+  /*align-self: flex-start;*/
+  min-width: -webkit-min-content;
+}
+
+.flex-container-controls{
+  display: -webkit-flex;
+  display: flex;
+  width: 400px;
+}
+
+
+.flex-item {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.off-label {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  margin-left: 70px;
+  margin-top:20px;
+}
+
+.off-on-button {
+  background-color: #211F1F;
+  border-radius: 5px;
+  height: 35px;
+  margin-left: 25px;
+  margin-top: 20px;
+  width: 72px;
+}
+
+.on-label {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-top:20px;
+
+}
+
+.red {
+  background-color: #9c121c;
+  border-top-right-radius:98%;
+}
+
+.score-keeper-screen {
+  background-color: #32050c;
+  border-color: #343132;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  height: 50px;
+  margin-left: 70px;
+  width: 80px;
+}
+
+.score-text {
+  color: #660A17;
+  font-size: 14pt;
+  padding-left: 28px;
+  font-family: 'VT323', monospace;
+}
+
+.start-button {
+  background-color: #fc0102;
+  border-color: #343132;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 5px;
+  box-shadow: 3px 3px 5px #888888;
+  height: 30px;
+  margin-left: 50px;
+  width: 30px;
+}
+
+.start-label {
+  font-family: 'VT323', monospace;
+  font-size: 18pt;
+  margin-left: 80px;
+
+}
+
+.strict {
+  font-family: 'VT323', monospace;
+  font-size: 18pt;
+  margin-top: 55px;
+}
+
+.title {
+  color: #222222;
+  font-family: 'Alfa Slab One', cursive;
+  margin-left: 65px;
+}
+
+.yellow {
+  background-color: #cba60c;
+  border-bottom-left-radius:98%;
+}
