@@ -3,6 +3,10 @@
   border-bottom-right-radius:98%;
 }
 
+.blue:hover {
+  background-color: #1dacff
+}
+
 
 .controls {
   background-color: #edeaed;
@@ -36,6 +40,10 @@
   border-top-left-radius:98%;
 }
 
+.green:hover {
+  background-color: #0dc701;
+}
+
 .flex-button {
   border-color: #343132;
   border-style: solid;
@@ -63,7 +71,6 @@
 .flex-container-controls{
   display: -webkit-flex;
   display: flex;
-  width: 400px;
 }
 
 
@@ -100,6 +107,9 @@
 .red {
   background-color: #9c121c;
   border-top-right-radius:98%;
+}
+.red:hover {
+  background-color: #ff0518;
 }
 
 .score-keeper-screen {
@@ -154,4 +164,8 @@
 .yellow {
   background-color: #cba60c;
   border-bottom-left-radius:98%;
+}
+
+.yellow:hover {
+  background-color: #ffce00;
 }
