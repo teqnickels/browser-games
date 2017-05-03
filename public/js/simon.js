@@ -5,7 +5,7 @@
 // Everytime a player plays a turn we check to see if the game still continues. IF it doesnt then alert saying 'game over'.
 //=============================================================================
 
-// (function() {
+(function() {
   var colors = ['green', 'red', 'yellow', 'blue']
   var playAudioByColor = function(color) {
     ({
@@ -89,7 +89,6 @@
 
 
 //==============================================================================
-//  2. ADD SOUND AND HOVER COLOR TO CLICKED AND COMPUTER PICKS
 //  3. ADD COUNTER TO SCORE FOR EACH SUCCESSFUL HUMAN PLAY
 //  4. REMOVE CONSOLE LOGS
 //==============================================================================
@@ -100,6 +99,16 @@
     this.currentPlayer = player2
     this.computer.playTurn()
   }
+  //
+  // var Score = function() {
+  //  this.score = 0
+  //  var count = function() {
+  //    return score++
+  //  };
+  // }
+  //
+  // score = new Score();
+  // need score to count ++ when user is right then reset to zero on loss
 
   Game.prototype.isRoundComplete = function() {
     var computerColors = this.computer.keysPressed
@@ -107,15 +116,22 @@
     return computerColors.length === humanColors.length
   }
 
+  var counter =
+
   Game.prototype.isHumanCorrectSoFar = function() {
+    document.getElementsByClassName('score-text')[0].innerHTML = counter
     var computerColors = this.computer.keysPressed
     var humanColors = this.human.keysPressed
     for(var i=0; i < humanColors.length; i++) {
       if(humanColors[i] !== computerColors[i]) {
+        counter = 0
+        document.getElementsByClassName('score-text')[0].innerHTML = counter
         return false
       }
+        counter++
+        document.getElementsByClassName('score-text')[0].innerHTML = counter
+        return true
     }
-    return true
   }
 
   Game.prototype.stopGame = function() {
@@ -127,17 +143,14 @@
   }
 
   Game.prototype.playTurn = function(color) {
-    // console.log('before computer keys::', this.computer.keysPressed);
-    // console.log('before human keys::', this.human.keysPressed);
-    // console.log('color::', color);
     this.human.playTurn(color)
-    // console.log('isRoundComplete::', this.isRoundComplete());
     if(!this.isHumanCorrectSoFar()) {
       alert('you selected the wrong color. Game over')
       this.stopGame()
     } else if(this.isRoundComplete()) {
       this.computer.playTurn()
       this.human.resetTurns()
+
     }
     console.log('after computer keys::', this.computer.keysPressed);//REMOVE THIS BEFORE FINAL MERGE
     console.log('after human keys::', this.human.keysPressed);//REMOVE THIS BEFORE FINAL MERGE
@@ -147,8 +160,9 @@
   // var human = new Player(false)
   // var game = new Game(computer, human)
   var game
-
+  var counter
   // console.log('init computer keys::', game.computer.keysPressed);//REMOVE THIS BEFORE FINAL MERGE
+
 
 
   document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
@@ -181,4 +195,4 @@
     audio.play();
   })
 
-// })()
+})()
