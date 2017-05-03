@@ -175,24 +175,44 @@
     game.playTurn('green')
     var audio = new Audio('../sounds/simonSound1.mp3');
     audio.play();
+    var greenButton = document.getElementsByClassName('green')[0]
+    greenButton.style.backgroundColor = "#0dc701"
+    audio.addEventListener('ended', function ()  {
+      return greenButton.style.background = "#03a64b"
+    })
   })
 
   document.getElementsByClassName('red')[0].addEventListener('click', function() {
     game.playTurn('red')
     var audio = new Audio('../sounds/simonSound2.mp3');
     audio.play();
+    var redButton = document.getElementsByClassName('red')[0]
+    redButton.style.backgroundColor = "#ff0518"
+    audio.addEventListener('ended', function() {
+     redButton.style.backgroundColor = "#9c121c"
+    })
   })
 
   document.getElementsByClassName('blue')[0].addEventListener('click', function() {
     game.playTurn('blue')
     var audio = new Audio('../sounds/simonSound3.mp3');
     audio.play();
+    var blueButton = document.getElementsByClassName('blue')[0]
+    blueButton.style.backgroundColor = "#1dacff"
+    audio.addEventListener('ended', function() {
+     blueButton.style.backgroundColor = "#1d8cff"
+    })
   })
 
   document.getElementsByClassName('yellow')[0].addEventListener('click', function() {
     game.playTurn('yellow')
     var audio = new Audio('../sounds/simonSound4.mp3');
     audio.play();
+    var yellowButton = document.getElementsByClassName('red')[0]
+    yellowButton.style.backgroundColor = "#ffce00"
+    audio.addEventListener('ended', function() {
+     yellowButton.style.backgroundColor = '#cba60c'
+    })
   })
 
 })()
