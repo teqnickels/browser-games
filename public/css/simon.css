@@ -96,6 +96,13 @@
   width: 72px;
 }
 
+.off-on-switch-inside-off-on-button {
+    height: 30px;
+    width: 36px;
+    background-color: #1d8cff;
+    border: solid 2px #343132;
+    border-radius: 5px;
+}
 .on-label {
   font-family: 'VT323', monospace;
   font-size: 24px;

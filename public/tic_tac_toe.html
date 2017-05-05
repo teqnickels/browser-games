@@ -2,32 +2,38 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="css/tic_tac_toe.css">
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/ticTacToe.css">
   </head>
   <body>
-  <div class="turn-announcer"> </div>
-  <div class="flex-container">
-    <div class="box 1" onclick="play()"></div>
-    <div class="box 2" onclick="play()"></div>
-    <div class="box 3" onclick="play()"></div>
-  </div>
-  <div class="flex-container">
-    <div class="box 4" onclick="play()"></div>
-    <div class="box 5" onclick="play()"></div>
-    <div class="box 6" onclick="play()"></div>
-  </div>
-  <div class="flex-container">
-    <div class="box 7" onclick="play()"></div>
-    <div class="box 8" onclick="play()"></div>
-    <div class="box 9" onclick="play()"></div>
-  </div>
-  <button onclick="startGame()">Start Game</div>
-  <button onclick="clear()">Clear Board</div>
 
-  <script src="js/tScripts.js"></script>
+
+  <div class="game">
+    <div class="flex-container">
+      <div class="x"> <button>X</button> </div>
+      <div class="o"> <button>0</button></div>
+    </div>
+    <div class="flex-container">
+      <div class="box 1"></div>
+      <div class="box 2"></div>
+      <div class="box 3"></div>
+    </div>
+    <div class="flex-container">
+      <div class="box 4"></div>
+      <div class="box 5"></div>
+      <div class="box 6"></div>
+    </div>
+    <div class="flex-container">
+      <div class="box 7"></div>
+      <div class="box 8"></div>
+      <div class="box 9"></div>
+    </div>
+    <div class="flex-container">
+      <div class="start-button"><button> Start Game </button></div>
+      <div class="clear-board-button"><button> Clear Board</button></div>
+    </div>
+  </div>
+  <script src="js/ticTacToe.js"></script>
 
   </body>
 </html>
