@@ -120,7 +120,6 @@
   function clearBoard() {
     for(let box of listOfboxes) {
       box.innerText = ' '
-      // box.removeChild(box.firstChild)
     }
   }
 
