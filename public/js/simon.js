@@ -33,7 +33,7 @@
         var audioObj = new Audio('../sounds/simonSound4.mp3')
         audioObj.volume = 1
         audioObj.play()
-        var yellowButton = document.getElementsByClassName('red')[0]
+        var yellowButton = document.getElementsByClassName('yellow')[0]
         yellowButton.style.backgroundColor = "#ffce00"
         audioObj.addEventListener('ended', function() {
          yellowButton.style.backgroundColor = '#cba60c'
@@ -116,8 +116,7 @@
     return computerColors.length === humanColors.length
   }
 
-  var counter =
-
+  var counter= 0
   Game.prototype.isHumanCorrectSoFar = function() {
     document.getElementsByClassName('score-text')[0].innerHTML = counter
     var computerColors = this.computer.keysPressed
@@ -160,9 +159,7 @@
   // var human = new Player(false)
   // var game = new Game(computer, human)
   var game
-  var counter
   // console.log('init computer keys::', game.computer.keysPressed);//REMOVE THIS BEFORE FINAL MERGE
-
 
 
   document.getElementsByClassName('start-button')[0].addEventListener('click', function() {
@@ -175,24 +172,44 @@
     game.playTurn('green')
     var audio = new Audio('../sounds/simonSound1.mp3');
     audio.play();
+    var greenButton = document.getElementsByClassName('green')[0]
+    greenButton.style.backgroundColor = "#0dc701"
+    audio.addEventListener('ended', function ()  {
+      return greenButton.style.background = "#03a64b"
+    })
   })
 
   document.getElementsByClassName('red')[0].addEventListener('click', function() {
     game.playTurn('red')
     var audio = new Audio('../sounds/simonSound2.mp3');
     audio.play();
+    var redButton = document.getElementsByClassName('red')[0]
+    redButton.style.backgroundColor = "#ff0518"
+    audio.addEventListener('ended', function() {
+     redButton.style.backgroundColor = "#9c121c"
+    })
   })
 
   document.getElementsByClassName('blue')[0].addEventListener('click', function() {
     game.playTurn('blue')
     var audio = new Audio('../sounds/simonSound3.mp3');
     audio.play();
+    var blueButton = document.getElementsByClassName('blue')[0]
+    blueButton.style.backgroundColor = "#1dacff"
+    audio.addEventListener('ended', function() {
+     blueButton.style.backgroundColor = "#1d8cff"
+    })
   })
 
   document.getElementsByClassName('yellow')[0].addEventListener('click', function() {
     game.playTurn('yellow')
     var audio = new Audio('../sounds/simonSound4.mp3');
     audio.play();
+    var yellowButton = document.getElementsByClassName('yellow')[0]
+    yellowButton.style.backgroundColor = "#ffce00"
+    audio.addEventListener('ended', function() {
+     yellowButton.style.backgroundColor = '#cba60c'
+    })
   })
 
 })()
