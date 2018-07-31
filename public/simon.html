@@ -14,13 +14,13 @@
   <body>
     <div class="console">
       <div class="flex-container">
-        <div class="flex-button green"></div>
-        <div class="flex-button red"></div>
+        <div class="flex-button green" onclick="sounds.green(true)"></div>
+        <div class="flex-button red" onclick="sounds.red(true)"></div>
       </div>
 
       <div class="flex-container">
-        <div class="flex-button yellow"></div>
-        <div class="flex-button blue"></div>
+        <div class="flex-button yellow" onclick="sounds.yellow(true)"></div>
+        <div class="flex-button blue" onclick="sounds.blue(true)"></div>
       </div>
 
       <div class="controls">
@@ -28,15 +28,16 @@
 
         <div class="flex-container">
           <div class="score-keeper">
-            <p class="score-text"> 0000</p>
+            <p class="score-text"> - - </p>
             <p class="count"> COUNT </p>
             <p class="off"> OFF </p>
           </div>
-          <div class="start-button">
+          <div class="start-button" onclick="gamesTurn()">
             <p class="start"> START </p>
             <p class="on"> ON </p>
           </div>
           <div class="strict-button">
+            <!-- <p class="strict"> STRICT </p> -->
           </div>
           <div class="strict-on"></div>
         </div>
@@ -57,8 +58,13 @@
 
     <audio class="blueSound" src="/sounds/simonSound4.mp3" autostart="false" type="audio/mpeg"></audio>
 
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
 
-  <script src="js/simon.js">
+  <script src="js/simonScripts.js">
   </script>
   </body>
 </html>
