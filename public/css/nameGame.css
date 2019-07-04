@@ -1,0 +1,96 @@
+.game-instructions {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;  
+  width:600px;
+  height:550px;
+  margin: 0 auto;
+
+}
+
+.button-container {
+  display: flex;
+  direction: row;
+  padding: 100px
+}
+
+.reset-button {
+ height: 51px;
+ width: 101px;
+ margin: 0 auto;
+ color: #ffffff;
+ font-family: 'VT323', monospace;
+ font-size: 16pt;
+ margin-bottom:20px;
+ background-color: red;
+ border:none;
+ border-radius: 10px;
+}
+
+.numbers button {
+  border-radius:50px;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 20px;
+  background-color: coral;
+  border: none;
+  font-family: 'VT323', monospace;
+  color: #ffffff; 
+  font-size: 16pt;   
+} 
+
+.on button {
+  border-radius: 50px;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 20px;
+  background-color: #CC582E;
+  border: none;
+  font-family: 'VT323', monospace;
+  color: #ffffff;
+  font-size: 16pt;
+  box-shadow: 2px 2px #EEF0F2;
+}
+
+.numbers button:hover {
+  border-radius: 50px;
+  height: 70px;
+  width: 70px;
+  background-color: #F9A58B;
+  /* background-color: #F97F59; */
+}
+
+.user-input-block {
+  height: 150px;
+  width: 400px;
+  font-family: 'VT323',
+  monospace;
+  font-size: 16pt;
+}
+
+.play-button {
+  height: 50px;
+  width: 100px;
+  border-radius:10px;
+  background-color: #0BB719;
+  color: #FFF;
+  font-family: 'VT323',monospace;
+  font-size: 16pt;
+  border: none;
+  margin-right: 10px;
+}
+
+.play-button:hover {
+  height: 51px;
+  width: 101px;
+  background-color: #0CD11C;
+  box-shadow: 2px 2px #EEF0F2;
+}
