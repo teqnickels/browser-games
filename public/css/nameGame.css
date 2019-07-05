@@ -52,7 +52,7 @@
   height: 70px;
   width: 70px;
   margin-bottom: 20px;
-  background-color: #CC582E;
+  background-color: coral;
   border: none;
   font-family: 'VT323', monospace;
   color: #ffffff;
@@ -64,7 +64,7 @@
   border-radius: 50px;
   height: 70px;
   width: 70px;
-  background-color: #F9A58B;
+  background-color: red;
   /* background-color: #F97F59; */
 }
 
