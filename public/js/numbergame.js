@@ -13,28 +13,28 @@
 
 //VARIABLES
 (function () {
-  let buttonColor;
-
   let state = {
     userNumbers:[],
     numberButtons: document.getElementsByClassName('on')[0],
-    buttonColor: "",
-    event:"",
-    target: "",
-
   }
+
   //EVENT LISTENER
   state.numberButtons.addEventListener('click', function (event) {
-    event = event || window.event;
-    state.target = event.target || event.srcElement,
-    num = target.innerText;
-
-    setButtonColor(target)
-    toggleButton(target, state.buttonColor)
-    saveUserNum(num)
+    changeTheState(event)
+    setButtonColor(state.target)
+    toggleButton(state.target, state.buttonColor)
+    saveUserNum(state.num)
 }, false);
 
 //GAME FUNCTIONS
+
+  let changeTheState = function(event) {
+    console.log(event.target)
+    state.trigger = event || window.event;
+    state.target = event.target || event.srcElement,
+    state.num = state.target.innerText;
+  }
+
   let setButtonColor = function(buttonPushed) {
     if (buttonPushed.style.backgroundColor=="") {
       console.log("1. INSIDE EVENT LISTENER, buttonPushed == ''")

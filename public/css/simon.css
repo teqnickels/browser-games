@@ -1,38 +1,12 @@
-
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    z-index: 2000;
-}
-
-.flex-button{
-  border-color: #343132;
-  border-style: solid;
-  border-width: 20px;
-  height: 300px;
-  width: 300px;
-  z-index: 100;
-}
-
-.green  {
-  background-color: #03a64b;
-  border-top-left-radius:98%;
-}
-
-.red {
-  background-color: #9c121c;
-  border-top-right-radius:98%;
-}
-
 .blue {
   background-color: #1d8cff;
-  border-bottom-right-radius:98%;
+  border-bottom-right-radius: 98%;
 }
 
-.yellow {
-  background-color: #cba60c;
-  border-bottom-left-radius:98%;
+.blue:hover {
+  background-color: #1dacff
 }
+
 
 .controls {
   background-color: #edeaed;
@@ -48,29 +22,119 @@
   z-index: 100;
 }
 
-.title {
-  color: #222222;
-  font-family: 'Alfa Slab One', cursive;
-  font-size: 40pt;
-  margin-left: 60px;
+.console {
+  margin: auto;
+  height: 680px;
+  width: 680px;
+  margin-top: 20px;
 }
 
-.score-keeper {
+.count {
+  font-family: 'VT323', monospace;
+  font-size: 18pt;
+  margin-left: 80px;
+}
+
+.green {
+  background-color: #03a64b;
+  border-top-left-radius: 98%;
+}
+
+.green:hover {
+  background-color: #0dc701;
+}
+
+.flex-button {
+  border-color: #343132;
+  border-style: solid;
+  border-width: 20px;
+  height: 300px;
+  width: 300px;
+  z-index: 100;
+}
+
+
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  z-index: 2000;
+}
+
+.flex-container-console {
+  display: -webkit-flex;
+  display: flex;
+  /*align-self: flex-start;*/
+  min-width: -webkit-min-content;
+}
+
+.flex-container-controls {
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+.flex-item {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.off-label {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.off-on-button {
+  background-color: #211F1F;
+  border-radius: 5px;
+  height: 35px;
+  margin-left: 25px;
+  margin-top: 20px;
+  width: 72px;
+}
+
+.off-on-switch-inside-off-on-button {
+  height: 30px;
+  width: 36px;
+  background-color: #1d8cff;
+  border: solid 2px #343132;
+  border-radius: 5px;
+}
+
+.on-label {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-top: 20px;
+
+}
+
+.red {
+  background-color: #9c121c;
+  border-top-right-radius: 98%;
+}
+
+.red:hover {
+  background-color: #ff0518;
+}
+
+.score-keeper-screen {
   background-color: #32050c;
   border-color: #343132;
   border-radius: 10px;
   border-style: solid;
   border-width: 5px;
   height: 50px;
-  margin-left: 60px;
-  margin-top: -50px;
+  margin-left: 70px;
   width: 80px;
 }
 
 .score-text {
   color: #660A17;
-  font-size: 14pt;
-  padding-left: 28px;
+  font-size: 26pt;
   font-family: 'VT323', monospace;
 }
 
@@ -82,23 +146,15 @@
   border-width: 5px;
   box-shadow: 3px 3px 5px #888888;
   height: 30px;
-  margin-left: 40px;
-  margin-top: -45px;
+  margin-left: 50px;
   width: 30px;
 }
 
-.count {
+.start-label {
   font-family: 'VT323', monospace;
   font-size: 18pt;
-  margin: 10px;
-}
+  margin-left: 80px;
 
-.start {
-  font-family: 'VT323', monospace;
-  font-size: 18pt;
-  margin-right: 10px
-  margin-top: 10px;
-  margin-top: 55px;
 }
 
 .strict {
@@ -107,47 +163,17 @@
   margin-top: 55px;
 }
 
-.off-on {
-  background-color: #211F1F;
-  border-radius: 5px;
-  height: 35px;
-  margin-left: 120px;
-  margin-top: 40px;
-  width: 72px;
+.title {
+  color: #222222;
+  font-family: 'Alfa Slab One', cursive;
+  margin-left: 65px;
 }
 
-.switch-on {
-  background-color: #3193de;
-  border-color: #343132;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  height:30px;
-  width: 35px;
-  display: block;
-}
-.switch-off {
-  background-color: #3193de;
-  border-color: #343132;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  height:30px;
-  width: 35px;
-  margin-left: 33px;
-  display: none;
+.yellow {
+  background-color: #cba60c;
+  border-bottom-left-radius: 98%;
 }
 
-.off {
-  font-family: 'VT323', monospace;
-  font-size: 24px;
-  margin-top:28px;
-}
-
-.on {
-  font-family: 'VT323', monospace;
-  font-size: 24px;
-  margin-left: 15px;
-  margin-bottom: 1px;
-  /*margin-top: 5px;*/
+.yellow:hover {
+  background-color: #ffce00;
 }

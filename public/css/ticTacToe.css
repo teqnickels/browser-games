@@ -1,8 +1,8 @@
 .flex-container {
-    display: -webkit-flex;
-    display: flex;
-    width: 400px;
-    height: 100px;
+  display: -webkit-flex;
+  display: flex;
+  width: 400px;
+  height: 100px;
 }
 
 .box {
@@ -24,4 +24,11 @@
   padding: 30px;
   font-size: 40pt;
   font-family: 'VT323', monospace;
+}
+
+.game {
+  margin: auto;
+  height: 680px;
+  width: 680px;
+  margin-top: 20px;
 }
