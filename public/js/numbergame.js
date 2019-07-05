@@ -1,77 +1,74 @@
 /**
- * Wrap game in IFFE
- * 
- * create event listener that listens for button clicks and
- * push number selections into an array until length=3
- * 
- * create event listener that listens for click on play button
- * run picker on click
- * 
+ * TODOS:
+ *    write a function that manages the state of the userNumbers array. 
  *  
  *
   */
 
 //VARIABLES
 (function () {
+  //STATE OF THE GAME
   let state = {
     userNumbers:[],
     numberButtons: document.getElementsByClassName('on')[0],
   }
 
+  //GAME FUNCTIONS
+  let game = {
+    changeTheState: function (event) {
+      state.trigger = event || window.event;
+      state.target = event.target || event.srcElement,
+      state.num = state.target.innerText;
+    },
+    setButtonColor: function (buttonPushed) {
+      if (buttonPushed.style.backgroundColor == "") {
+        state.buttonColor = "coral"
+      } else if (buttonPushed.style.backgroundColor = "coral") {
+        state.buttonColor = "red";
+      } else {
+        state.buttonColor == "coral";
+      }
+    },     
+    toggleButton: function (button, color) {
+      if (color == "red") {
+        this.toggleOff(button)
+      } else {
+        this.toggleOn(button)
+      }
+    },
+    toggleOn: function (button) {
+      button.style.backgroundColor = "red";
+    },
+    toggleOff: function (button) {
+      button.style.backgroundColor = "coral";
+    },
+    saveUserNum: function (num) {
+      if (state.userNumbers.length <= 5) {
+        state.userNumbers.push(num)
+      }
+    },
+    resetTheState: function() {
+      state = {
+        userNumbers: [],
+        numberButtons: document.getElementsByClassName('on')[0],
+      }
+    }
+  }
+
   //EVENT LISTENER
   state.numberButtons.addEventListener('click', function (event) {
-    changeTheState(event)
-    setButtonColor(state.target)
-    toggleButton(state.target, state.buttonColor)
-    saveUserNum(state.num)
+    if(event.target.innerText == "Reset"){
+      game.resetTheState
+    }
+    
+    game.changeTheState(event)
+    game.setButtonColor(state.target)
+    game.toggleButton(state.target, state.buttonColor)
+    game.saveUserNum(state.num)
 }, false);
 
-//GAME FUNCTIONS
 
-  let changeTheState = function(event) {
-    console.log(event.target)
-    state.trigger = event || window.event;
-    state.target = event.target || event.srcElement,
-    state.num = state.target.innerText;
-  }
 
-  let setButtonColor = function(buttonPushed) {
-    if (buttonPushed.style.backgroundColor=="") {
-      console.log("1. INSIDE EVENT LISTENER, buttonPushed == ''")
-      console.log("2. SETTING COLOR TO CORAL")
-      state.buttonColor = "coral"
-    } else if (buttonPushed.style.backgroundColor="coral") {
-      console.log("1. INSIDE EVENT LISTENER, buttonPushed == CORAL")
-      console.log("2. SETTING COLOR TO RED")
-      state.buttonColor = "red";
-    } else {
-      console.log("1. INSIDE EVENT LISTENER, buttonPushed == RED")
-      console.log("2. SETTING COLOR TO CORAL")
-      state.buttonColor == "coral"; //if its red
-    }
-  }
-
-  let toggleButton = function(button, color) {
-    if(color == "red") {
-      toggleOff(button)
-    } else {
-      toggleOn(button)
-    }
-  }
-
-  let toggleOn = function(button) {
-    button.style.backgroundColor="red";
-  }
-
-  let toggleOff = (button) => {
-    button.style.backgroundColor = "coral";
-  }
-
-  let saveUserNum = (num) => {
-    if(state.userNumbers.length <= 5) {
-      state.userNumbers.push(num)
-    }
-  }
   
   let picker = (userNumber) => {
     let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
