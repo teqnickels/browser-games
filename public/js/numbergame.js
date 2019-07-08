@@ -3,13 +3,13 @@
  * - Rewrite the game.reset()
  * - Change check obj to helper functions ob
  * - Add the random number function to the helper obj
- * - Fix color changing on numbers we can't add
  * - Display msg to the user when we can't add
+ * - 
   */
 
 //VARIABLES
 (function () {
-  //STATE OF THE GAME
+  // STATE OF THE GAME
   let state = {
     userNumbers: [],
     numberButtons: document.getElementsByClassName("on")[0],
@@ -18,33 +18,44 @@
     computerPickedNumbers: []
   };
 
-  // HELPER
-  let check = { 
+  // MESSAGES THAT THE USER WILL NEED TO PLAY THE GAME
+  let messages = {
+    pickFive: " Pick 5 numbers to play", 
+    clickPlay: "Click Play to see if you have matching numbers!", 
+    yourCurrentNumbers: "You Picked: " + state.userNumbers
+  }
+  
+  // THESE ARE FUNCTIONS THAT DON'T DO GAME OPERATIONS BUT OFFER SMALLER HELPFUL FUNCTIONALITY
+  let helper = {
     canAddNumber: function(button) {
       if (state.userNumbers.includes(button.innerText)) {
-          return false;
+        console.log("Number already in arr, so lets delete it!")
+        return false;
       } else if(state.userNumbers.length == 5) {
         return false;
       } else {
         return true;
       }
+    },
+    randomNumber: function() {
+      var index = numbers[Math.floor(Math.random() * numbers.length)];
+      return index
+    }, 
+    displayToUser: function(msg) {
+      state.inputBox.innerHTML = messages.msg;
     }
   }
 
-  //GAME FUNCTIONS
+   
+  // GAME FUNCTIONS
   let game = {
     changeTheState: function (event) {
-    if(state.userNumbers.length == 1 && event.target.innerText == state.userNumbers[0]) {
-      this.deleteUserNum();
       this.updateTheUser();
-      } else {
-        state.trigger = event || window.event;
-        state.target = event.target || event.srcElement,
-        state.currentNum = state.target.innerText;
-      }
+      state.trigger = event || window.event;
+      state.target = event.target || event.srcElement,
+      state.currentNum = state.target.innerText;
     },     
     toggleOff: function (button) {
-        console.log("Turning button on");
         button.dataset.set = "off";
         button.style.backgroundColor = "coral";
         this.deleteUserNum(button.innerText);
@@ -68,18 +79,20 @@
       }
     },
     deleteUserNum: function(num) {
-      for(let i = 0; i <= state.userNumbers.length; i++) {
-        if(state.userNumbers[i] == num) {
-          state.userNumbers.splice(i, 1);
-          this.updateTheUser();
+      console.log ("Length of state.userNumbers", state.userNumbers.length)
+      if(state.userNumbers.length < 2 && num == state.userNumbers[0]) {
+        console.log("REMOVING THE LAST NUMBER", state.userNumbers)
+        state.userNumbers.pop()
+        console.log("REMOVED THE LAST NUMBER", state.userNumbers);
+      } else {
+        for(let i = 0; i <= state.userNumbers.length; i++) {
+          if(state.userNumbers.length > 1) {
+            if(state.userNumbers[i] == num) {
+              state.userNumbers.splice(i, 1);
+              this.updateTheUser();
+            }
+          }
         }
-      }
-    },
-    resetTheState: function() {
-      state = {
-        userNumbers: [],
-        numberButtons: document.getElementsByClassName('on')[0],
-        inputBox: document.getElementsByClassName("user-input-block")[0]
       }
     },
     checkTheState: function() {
@@ -99,22 +112,17 @@
         state.gameNumbers.push(i);
         i++;
       }
-      
       for(let i = 0; i <= 5; i++) {
-        this.randomNumber()
-        if(state.computerPickedNumbers.includes(state.gameNumbers[this.randomNumber()])) {
+        helper.randomNumber()
+        if(state.computerPickedNumbers.includes(state.gameNumbers[helper.randomNumber()])) {
           i--;
-          this.randomNumber();
+          helper.randomNumber();
         } else {
-          state.computerPickedNumbers.push(state.gameNumbers[this.randomNumber])
+          state.computerPickedNumbers.push(state.gameNumbers[helper.randomNumber])
         }
       }
-    }, 
-    
-    randomNumber: function() {
-      var index = numbers[Math.floor(Math.random() * numbers.length)];
-      return index
     }
+    
 
       }
 
@@ -139,13 +147,11 @@
       game.resetTheState()
     }
 
-    if(check.canAddNumber(event.target) == true) {
-      console.log("WE CAN ADD")
+    if(helper.canAddNumber(event.target) == true) {
       if(event.target.dataset.set = "off") {
         game.toggleOn(state.target);
       } 
-    } else if(check.canAddNumber(event.target) == false) {
-        console.log("Remove number")
+    } else if(helper.canAddNumber(event.target) == false) {
         game.toggleOff(state.target);
         game.deleteUserNum(state.target);
         console.log("Current User Numbers ", state.userNumbers)
@@ -153,7 +159,7 @@
       }
 
     
-    if (event.target.innerText == "Play!") {
+    if(event.target.innerText == "Play!") {
       //userNumbers.length == 5; else, throw an error, print to user console
       // else, run:
       // picker()
