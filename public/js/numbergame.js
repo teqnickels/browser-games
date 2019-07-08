@@ -4,16 +4,19 @@
  * - Change check obj to helper functions ob
  * - Add the random number function to the helper obj
  * - Display msg to the user when we can't add
- * - 
-  */
+ * - Remove 'Play!' from displaying to the user when clicked
+ *
+ *   */
 
 //VARIABLES
 (function () {
   // STATE OF THE GAME
   let state = {
     userNumbers: [],
-    numberButtons: document.getElementsByClassName("on")[0],
+    buttons: document.getElementsByClassName("buttons")[0],
+    play: document.getElementsByClassName("play-button")[0],
     inputBox: document.getElementsByClassName("user-input-block")[0],
+    matchedNumbers: [],
     gameNumbers: [],
     computerPickedNumbers: []
   };
@@ -22,7 +25,8 @@
   let messages = {
     pickFive: " Pick 5 numbers to play", 
     clickPlay: "Click Play to see if you have matching numbers!", 
-    yourCurrentNumbers: "You Picked: " + state.userNumbers
+    yourCurrentNumbers: "You Picked: " + state.userNumbers, 
+    sorry: "You didn't have any matches :( Try again."
   }
   
   // THESE ARE FUNCTIONS THAT DON'T DO GAME OPERATIONS BUT OFFER SMALLER HELPFUL FUNCTIONALITY
@@ -38,7 +42,7 @@
       }
     },
     randomNumber: function() {
-      var index = numbers[Math.floor(Math.random() * numbers.length)];
+      var index = state.gameNumbers[Math.floor(Math.random() * state.gameNumbers.length)];
       return index
     }, 
     displayToUser: function(msg) {
@@ -106,25 +110,34 @@
       state.inputBox.innerHTML = state.userNumbers
     }, 
 
-    picker: function (userNumber) {
+    picker: function() {
       let i = 1;
-      while(state.gameNumbers.length <= 41) {
+      while(state.gameNumbers.length <= 39) {
         state.gameNumbers.push(i);
-        i++;
+        i++;  
       }
-      for(let i = 0; i <= 5; i++) {
+      console.log("GAME NUMBERS",state.gameNumbers)
+      for(let i = 0; i <= 4; i++) {
         helper.randomNumber()
         if(state.computerPickedNumbers.includes(state.gameNumbers[helper.randomNumber()])) {
           i--;
           helper.randomNumber();
         } else {
-          state.computerPickedNumbers.push(state.gameNumbers[helper.randomNumber])
+          state.computerPickedNumbers.push(state.gameNumbers[helper.randomNumber()])
+        }
+        console.log("The computer picked numbers: ", state.computerPickedNumbers)
+      }
+    }, 
+    compare: function() {
+      for(let i = 0; i < state.computerPickedNumbers.length; i++) {
+        if(state.userNumbers.includes(state.computerPickedNumbers[i])){
+          state.matchedNumbers.push(state.computerPickedNumbers[i])
         }
       }
+      console.log("HERE ARE YOUR MATCHING PICS! ", state.matchedNumbers)
     }
-    
 
-      }
+  }
 
     
     //   if (userNumber > 10) {
@@ -141,7 +154,9 @@
     // }
 
   //EVENT LISTENER
-  state.numberButtons.addEventListener('click', function (event) {
+  state.buttons.addEventListener('click', function (event) {
+    console.log("The button that was clicked", event.target)
+
     game.changeTheState(event)
     if(event.target.innerText == "Reset") {
       game.resetTheState()
@@ -156,16 +171,14 @@
         game.deleteUserNum(state.target);
         console.log("Current User Numbers ", state.userNumbers)
         return;
-      }
+    }
+  })    
 
-    
-    if(event.target.innerText == "Play!") {
-      //userNumbers.length == 5; else, throw an error, print to user console
-      // else, run:
-      // picker()
-      // matchFinder()
-    }    
-      });
+    state.play.addEventListener('click', function(event) {
+      game.picker()
+      game.compare()
+    })
+
 
   
   // try {
