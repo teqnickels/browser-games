@@ -1,7 +1,7 @@
 /**
  * TODOS:
  * - Rewrite the game.reset()
- * - Fix toggle off 
+ * - fix duplicate of push
   */
 
 //VARIABLES
@@ -63,6 +63,9 @@
       console.log("TRIGGERED saveUserNum");
       if(this.checkTheState()) {
         console.log("checked the state, now we are going to push the number into the array!")
+        if(state.userNumbers.length > 1) {
+          console.log("SOMETHING HAPPENED HERE!!!")
+        }
         state.userNumbers.push(num)
         console.log("WE PUSHED! Here is the new array " + state.userNumbers)
         console.log("This is the length of the new Array "+ state.userNumbers.length)
@@ -100,7 +103,7 @@
     },
     updateTheUser: function() {
       console.log("TRIGGERED updateTheUser")
-      console.log("THIS IS THE NEW ARRAY FROM UPDATE USER",state.userNumbers)
+      console.log("THIS IS THE NEW ARRAY FROM UPDATE USER", state.userNumbers)
       state.inputBox.innerHTML = state.userNumbers
     }
   }
@@ -116,7 +119,6 @@
       console.log("WE CAN ADD")
       if(event.target.dataset.set = "off") {
         game.toggleOn(state.target);
-        game.saveUserNum(state.currentNum)
       } 
     } else if(check.canAddNumber(event.target) == false) {
         console.log("Remove number")
