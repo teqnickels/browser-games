@@ -1,12 +1,12 @@
 /**
  * TODOS:
  * - Rewrite the game.reset()
- * - Change check obj to helper functions ob
- * - Add the random number function to the helper obj
  * - Display msg to the user when we can't add
- * - Remove 'Play!' from displaying to the user when clicked
- *
- *   */
+ * - Computer numbers CANNOT be dupes
+ * - Change event listener to querySelector()
+ * - Limit randomizer from running more than ONCE at a time. 
+ * - Eliminate undefined picks from randomizer
+ * */
 
 //VARIABLES
 (function () {
@@ -22,10 +22,8 @@
   };
 
   // MESSAGES THAT THE USER WILL NEED TO PLAY THE GAME
-  let messages = {
-    pickFive: " Pick 5 numbers to play", 
+  let notes = {
     clickPlay: "Click Play to see if you have matching numbers!", 
-    yourCurrentNumbers: "You Picked: " + state.userNumbers, 
     sorry: "You didn't have any matches :( Try again."
   }
   
@@ -33,7 +31,6 @@
   let helper = {
     canAddNumber: function(button) {
       if (state.userNumbers.includes(button.innerText)) {
-        console.log("Number already in arr, so lets delete it!")
         return false;
       } else if(state.userNumbers.length == 5) {
         return false;
@@ -41,20 +38,21 @@
         return true;
       }
     },
+
     randomNumber: function() {
+      console.log("RANDOMIZING");
       var index = state.gameNumbers[Math.floor(Math.random() * state.gameNumbers.length)];
+      console.log("HERES THE INDEX!",index)
       return index
     }, 
-    displayToUser: function(msg) {
-      state.inputBox.innerHTML = messages.msg;
-    }
   }
 
    
   // GAME FUNCTIONS
   let game = {
     changeTheState: function (event) {
-      this.updateTheUser();
+      console.log("Changing the state")
+      console.log("From Change the state", notes.yourPicks)
       state.trigger = event || window.event;
       state.target = event.target || event.srcElement,
       state.currentNum = state.target.innerText;
@@ -63,15 +61,11 @@
         button.dataset.set = "off";
         button.style.backgroundColor = "coral";
         this.deleteUserNum(button.innerText);
-        this.updateTheUser()
       },
     toggleOn: function (button) {
-      console.log("BUTTON", button)
-      console.log("Turning button ON");
       button.dataset.set = "on";       
       button.style.backgroundColor = "red";
       this.saveUserNum(button.innerText);
-      this.updateTheUser();
       },
 
     saveUserNum: function (num) {
@@ -79,21 +73,19 @@
         if(state.userNumbers.length > 1) {
         }
         state.userNumbers.push(num)
-        this.updateTheUser();
+        this.updateTheUser("numbers");
       }
     },
     deleteUserNum: function(num) {
-      console.log ("Length of state.userNumbers", state.userNumbers.length)
       if(state.userNumbers.length < 2 && num == state.userNumbers[0]) {
-        console.log("REMOVING THE LAST NUMBER", state.userNumbers)
-        state.userNumbers.pop()
-        console.log("REMOVED THE LAST NUMBER", state.userNumbers);
+        state.userNumbers.pop();
+        this.updateTheUser("pick");
       } else {
         for(let i = 0; i <= state.userNumbers.length; i++) {
           if(state.userNumbers.length > 1) {
             if(state.userNumbers[i] == num) {
               state.userNumbers.splice(i, 1);
-              this.updateTheUser();
+              this.updateTheUser("numbers");
             }
           }
         }
@@ -106,21 +98,31 @@
         return false;
       }
     },
-    updateTheUser: function() {
-      state.inputBox.innerHTML = state.userNumbers
+    updateTheUser: function(msg) {
+      switch (msg) {
+        case "numbers":
+          state.inputBox.innerHTML = "You Picked: " + state.userNumbers;
+          break;
+        case "pick":
+          state.inputBox.innerHTML = "Pick 5 numbers to play!";
+          break;
+        default:
+          state.inputBox.innerHTML = "Pick 5 numbers to play!";
+      }
     }, 
 
     picker: function() {
-      let i = 1;
+      let j = 1;
       while(state.gameNumbers.length <= 39) {
-        state.gameNumbers.push(i);
-        i++;  
+        state.gameNumbers.push(j);
+        j++;  
       }
-      console.log("GAME NUMBERS",state.gameNumbers)
-      for(let i = 0; i <= 4; i++) {
+      for(let i = 0; i <= state.userNumbers.length; i++) {
         helper.randomNumber()
-        if(state.computerPickedNumbers.includes(state.gameNumbers[helper.randomNumber()])) {
+        if(state.computerPickedNumbers.includes(state.gameNumbers[helper.randomNumber()]) == true || state.computerPickedNumbers.includes(state.gameNumbers[helper.randomNumber()] == undefined)) {
+          console.log("OOPS, dupe")
           i--;
+          state.computerPickedNumbers.pop()
           helper.randomNumber();
         } else {
           state.computerPickedNumbers.push(state.gameNumbers[helper.randomNumber()])
@@ -130,33 +132,20 @@
     }, 
     compare: function() {
       for(let i = 0; i < state.computerPickedNumbers.length; i++) {
-        if(state.userNumbers.includes(state.computerPickedNumbers[i])){
-          state.matchedNumbers.push(state.computerPickedNumbers[i])
+        for(let j = 0; j < state.userNumbers.length; j++) {
+          if(state.computerPickedNumbers[i] == state.userNumbers[j]){
+            state.matchedNumbers.push(state.computerPickedNumbers[i])
+          }
         }
       }
-      console.log("HERE ARE YOUR MATCHING PICS! ", state.matchedNumbers)
+      if(state.matchedNumbers.length > 0) {
+        alert("CONGRATULATIONS!! \n You matched " + state.matchedNumbers.length + " OF THE NUMBERS! \n We Picked "  + state.computerPickedNumbers + " \n The Matching Number(s): " + state.matchedNumbers);
+      }
     }
-
   }
 
-    
-    //   if (userNumber > 10) {
-    //     throw "Pick a number between 1 - 10"
-    //   } else if (userNumber < 1) {
-    //     throw "Pick a number between 1 - 10"
-    //   } else if (index == userNumber) {
-    //     console.log("CONGRATULATIONS! You picked " + userNumber + " and the random number is " + index + " YOU WON!YOU WON!")
-    //   } else if (isNaN(userNumber))
-    //     throw "This is not a number. Please pick a number between 1 - 10 and try again."
-    //   else {
-    //     console.log("You picked " + userNumber + " and the random number is " + index + " SORRY  =( ")
-    //   }
-    // }
-
-  //EVENT LISTENER
+  //EVENT LISTENERS 
   state.buttons.addEventListener('click', function (event) {
-    console.log("The button that was clicked", event.target)
-
     game.changeTheState(event)
     if(event.target.innerText == "Reset") {
       game.resetTheState()
@@ -175,15 +164,8 @@
   })    
 
     state.play.addEventListener('click', function(event) {
+      state.computerPickedNumbers = [];
       game.picker()
       game.compare()
     })
-
-
-  
-  // try {
-  //   picker(5)
-  // } catch (e) {
-  //   console.log("Uh Oh! " + e);
-  // }
 })();
