@@ -4,7 +4,6 @@
   width: 600px;
   height: 220px;
   margin: 0 auto;
-  outline: solid 1px green; 
 
 }
 
@@ -20,7 +19,6 @@
 .button-container {
   display: flex;
   height: 150px;
-  outline: solid 1px blue;
   text-align:center;
 }
 
@@ -73,7 +71,6 @@
   height: 70px;
   width: 70px;
   background-color: red;
-  /* background-color: #F97F59; */
 }
 
 .user-input-block {
@@ -82,7 +79,6 @@
   font-family: 'VT323',
     monospace;
   font-size: 16pt;
-  outline: solid 1px red;
   margin: 0 auto; 
   margin-bottom: 20px;
 }
