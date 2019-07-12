@@ -45,6 +45,9 @@
       if(state.index === newIndex) {
         console.log("OOPS, DUPE! Running again!")
         this.randomNumber("Within the function")
+      } else if(state.gameNumbers[newIndex] == undefined) {
+        console.log("WHOOPS, UNDEFINED. Running again!")
+        this.randomNumber()
       } else {
         state.index = newIndex
         state.computerPickedNumbers.push(state.gameNumbers[state.index])
@@ -82,8 +85,6 @@
 
     saveUserNum: function (num) {
       if(this.checkTheState()) {
-        // if(state.userNumbers.length > 1) {
-        // }
         state.userNumbers.push(num)
         this.updateTheUser("numbers");
       }
@@ -181,7 +182,6 @@
     } else if(helper.canAddNumber(event.target) == false) {
         game.toggleOff(state.target);
         game.deleteUserNum(state.target);
-        console.log("Current User Numbers ", state.userNumbers)
         return;
     }
   })    
