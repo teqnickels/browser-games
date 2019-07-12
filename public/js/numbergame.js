@@ -20,7 +20,8 @@
     userNumbers: [],
     matchedNumbers: [],
     gameNumbers: [],
-    computerPickedNumbers: []
+    computerPickedNumbers: [], 
+    clickedButtons: []
 
   };
 
@@ -61,11 +62,19 @@
       state.currentNum = state.target.innerText;
     },     
     toggleOff: function (button) {
-        button.dataset.set = "off";
-        button.style.backgroundColor = "coral";
-        this.deleteUserNum(button.innerText);
+      if(state.clickedButtons.length > 1) {
+        for(let i = 0; i < state.clickedButtons.length; i++) {
+          if(button.innerText == state.clickedButtons[i]) {
+            state.clickedButtons.splice(state.clickedButtons[i], 1);
+          }
+        }
+      }
+      button.dataset.set = "off";
+      button.style.backgroundColor = "coral";
+      this.deleteUserNum(button.innerText);
       },
     toggleOn: function (button) {
+      state.clickedButtons.push(button)
       button.dataset.set = "on";       
       button.style.backgroundColor = "red";
       this.saveUserNum(button.innerText);
@@ -149,9 +158,9 @@
       state.matchedNumbers = [];
       state.gameNumbers = [];
       state.computerPickedNumbers = [];
-      if(state.userNumbers.length > 0) {
-        for(let i = 0; i < userNumbers.length; i++) {
-          this.toggleOff() // THIS IS WHERE I STOPPED 
+      if(state.clickedButtons.length > 0) {
+        for(let i = 0; i < state.clickedButtons.length; i++) {
+          this.toggleOff(state.clickedButtons[i]) // THIS IS WHERE I STOPPED 
         }
       }
       this.updateTheUser("pick")
@@ -193,5 +202,4 @@
 
       } 
     })
-
 })();
