@@ -13,10 +13,11 @@
 (function () {
   // STATE OF THE GAME
   let state = {
-    userNumbers: [],
     buttons: document.getElementsByClassName("buttons")[0],
-    controls: document.getElementsByClassName("controls")[0],
+    play: document.getElementsByClassName("play-button")[0],
+    reset: document.getElementsByClassName("reset-button")[0],
     inputBox: document.getElementsByClassName("user-input-block")[0],
+    userNumbers: [],
     matchedNumbers: [],
     gameNumbers: [],
     computerPickedNumbers: []
@@ -103,6 +104,7 @@
     },
 
     updateTheUser: function(msg) {
+      console.log("UPDATING USER")
       switch (msg) {
         case "numbers":
           state.inputBox.innerHTML = "You Picked: " + state.userNumbers;
@@ -141,6 +143,18 @@
       } else {
         alert("SORRY\n You don't have any matches. =( Try again.\n We picked:  " + state.computerPickedNumbers)
       }
+    }, 
+    resetTheState: function() {
+      state.userNumbers = [];
+      state.matchedNumbers = [];
+      state.gameNumbers = [];
+      state.computerPickedNumbers = [];
+      if(state.userNumbers.length > 0) {
+        for(let i = 0; i < userNumbers.length; i++) {
+          this.toggleOff() // THIS IS WHERE I STOPPED 
+        }
+      }
+      this.updateTheUser("pick")
     }
   }
 
@@ -163,14 +177,21 @@
     }
   })    
 
-    state.controls.addEventListener('click', function(event) {
+    state.play.addEventListener('click', function(event) {
       console.log(event)
-      if(event.target.innerText =="Play!") {
+      // if(event.target.innerText =="Play!") {
         state.computerPickedNumbers = [];
         game.picker()
         game.compare()
-      } else if(event.target.innerText == "Reset") {
+      // }
+    })
+
+    state.reset.addEventListener('click', function(event) {
+      if(state.userNumbers.length > 0) {
         console.log("START OVER")
+        game.resetTheState()
+
       } 
     })
+
 })();
